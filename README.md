@@ -34,5 +34,3 @@ angular2非常的便捷和模块化的思想很清晰，结构以component和ser
 使用途中也遇到了不少的问题，如当时用angular-in-memory-web-api的时候，createDb中的返回名称必须和api/:collectionName保存一致，否则会报404的错误。
 
 由于使用的是jsonp获取数据会出现，数据返回后界面没有更新的问题，所以必须使用 ChangeDetectionStrategy,  ChangeDetectorRef检查器，对其检查后才能正常渲染。
-
-router的routerLink指令相比于routerLink="'a/',b"如果b是空会有报错提示，但是[routerLink]="['a/',b]"b是空是能够正常使用的。
