@@ -1,0 +1,56 @@
+<!-- 首页开始 -->
+<div class="list">
+  <!-- 轮播图部分 -->
+  <div class="main">
+    <app-carousel></app-carousel>
+    <div class="PopularMovie">
+      <h2>
+        <span>{{hotMovie.title}}</span>
+        <a [routerLink]="[hotMovie.more.link]">{{hotMovie.more.label}}&gt;&gt;</a>
+      </h2>
+      <ul *ngIf="!hotLoadingState">
+        <li *ngFor="let movie of hotMovie.list">
+          <a [routerLink]="['/details',movie.id]">
+            <img src="{{movie.images.large}}" alt="">
+          </a>
+          <div class="meta">
+            <h4>
+              <span>{{movie.title}}</span>
+              <em>{{movie.rating.average}}</em>
+            </h4>
+            <div class="otherinfo">
+              <span>{{hotMovie.type}}</span>
+              <span>{{movie.genres.join(' ')}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <app-loading [loadingState]="hotLoadingState"></app-loading>
+    </div>
+    <div class="latestMovie">
+      <h2>
+        <span>{{newMovie.title}}</span>
+        <a href="{{newMovie.more.link}}">{{newMovie.more.label}}&gt;&gt;</a>
+      </h2>
+      <ul *ngIf="!newLoadingState">
+        <li *ngFor="let movie of newMovie.list">
+          <a [routerLink]="['/details',movie.id]">
+            <img src="{{movie.images.large}}" alt="">
+          </a>
+          <div class="meta">
+            <h4>
+              <span>{{movie.title}}</span>
+              <em>{{movie.rating.average}}</em>
+            </h4>
+            <div class="otherinfo">
+              <span>{{newMovie.type}}</span>
+              <span>{{movie.genres.join(' ')}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <app-loading [loadingState]="newLoadingState"></app-loading>
+    </div>
+  </div>
+</div>
+<!-- 首页结束 -->

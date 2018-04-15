@@ -1,0 +1,27 @@
+<div class="Shuffling" (mouseenter)="btnsMouseenter()" (mouseleave)="btnsMouseleave()">
+  <ol>
+    <li *ngFor="let item of appCarousels;" #li>
+      <a [routerLink]="['/details',item.link]">
+        <img src="{{item.url}}" alt="">
+      </a>
+    </li>
+  </ol>
+  <div *ngIf="movieMessage.name" class="detail-tip">
+    <div class="message-box clearfix">
+      <div class="fl-left">
+        <p class="title">{{movieMessage.name}}</p>
+      </div>
+      <div class="fl-right">
+        <p class="date">{{movieMessage.time}}</p>
+      </div>
+    </div>
+  </div>
+  <div [@display]="btnState" class="btns">
+    <div (click)="firstClick()" class="{{btnLeft.class}}">
+      <img src="{{btnLeft.url}}" alt="">
+    </div>
+    <div (click)="nextClick()" class="{{btnRight.class}}">
+      <img src="{{btnRight.url}}" alt="">
+    </div>
+  </div>
+</div>

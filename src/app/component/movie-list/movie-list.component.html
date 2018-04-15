@@ -1,0 +1,39 @@
+<div *ngIf="!loadingState" class="list">
+  <ul *ngIf="movieList.data.length">
+    <li *ngFor="let movie of movieList.data">
+      <a [routerLink]="['/details',movie.id]">
+        <img src="{{movie.images.large}}" alt="">
+      </a>
+      <div class="meta">
+        <h4>
+          <span>{{movie.title}}</span>
+          <em>{{movie.rating.average}}</em>
+        </h4>
+        <div class="otherinfo">
+          <span>{{movieList.type}}</span>
+          <span>{{movie.genres.join(' ')}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="paging">
+    <label>
+      <span>{{page.text.label1}}</span>
+      <span>{{page.total}}</span>
+      <span>{{page.text.label2}}</span>
+      <span>{{page.pageIndex}}/{{page.pageCount}}</span>
+      <span>{{page.text.label3}}</span>
+    </label>
+    <!-- 加上disable类样式，表示按钮禁用状态 -->
+    <button class="prev" (click)="upDatePage(page.pageIndex = page.pageIndex - 1)" [ngClass]="{disable: page.pageIndex === 1}"
+      #first>
+      {{btns.first.label}}
+    </button>
+    <button class="next" (click)="upDatePage(page.pageIndex = page.pageIndex + 1)" [ngClass]="{disable: page.pageIndex === page.pageCount}"
+      #next>
+      {{btns.next.label}}
+    </button>
+  </div>
+</div>
+
+<app-loading [loadingState]="loadingState"></app-loading>

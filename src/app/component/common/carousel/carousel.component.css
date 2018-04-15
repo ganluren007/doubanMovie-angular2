@@ -1,0 +1,26 @@
+.Shuffling {
+  position: relative;
+}
+
+.Shuffling .detail-tip {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  width: 100%;
+  line-height: 41px;
+}
+
+.Shuffling .detail-tip .message-box {
+  padding: 5px 10px;
+}
+
+.Shuffling .detail-tip .message-box .title {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.Shuffling .detail-tip .message-box .date {
+  font-style: italic;
+}

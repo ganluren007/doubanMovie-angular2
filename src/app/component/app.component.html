@@ -1,0 +1,29 @@
+<div class="top">
+  <div class="header">
+    <a [routerLink]="[logo.link]">
+      <img class="logo" src="{{logo.url}}" alt="">
+    </a>
+    <div class="search">
+      <input class="my-input" [(ngModel)]="search.value" type="text" name="search" placeholder="{{search.placeholder}}">
+      <a [routerLink]="[search.link,search.value]">{{btn.label}}</a>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <!--li中添加 active 类样式，显示焦点状态。-->
+      <li *ngFor="let nav of navList; let i=index" [ngClass]="{active: i === 0}" appActive>
+        <a [routerLink]="[nav.link]">{{nav.label}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!-- 顶部导航栏结束 -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>{{footer.label}}&copy;{{footer.name}}</p>
+  </div>
+</footer>

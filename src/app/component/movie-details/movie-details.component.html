@@ -1,0 +1,36 @@
+<div class="detail" *ngIf="!loadingState">
+  <h1>{{movies.title}}</h1>
+  <div class="dt-info">
+    <div class="dti-i">
+      <img src="{{movies.images.large}}" alt="">
+    </div>
+    <div class="dti-w">
+      <p>
+        <strong>{{detailLabel.directors}}</strong>
+        <span>{{movies.directors[0].name}}</span>
+      </p>
+      <p>
+        <strong>{{detailLabel.casts}}</strong>
+        <span class="set-color margin-right-xs" *ngFor="let cast of movies.casts">{{cast.name}} </span>
+      </p>
+      <p>
+        <strong>{{detailLabel.genres}}</strong>
+        <span class="set-color margin-right-xs" *ngFor="let genre of movies.genres">{{genre}}</span>
+      </p>
+      <p>
+        <strong>{{detailLabel.countries}}</strong>{{movies.countries}}</p>
+      <p>
+        <strong>{{detailLabel.average}}</strong>{{movies.rating.average}}</p>
+      <p>
+        <strong>{{detailLabel.year}}</strong>{{movies.year}}</p>
+      <p>
+        <strong>{{detailLabel.aka}}</strong>
+        <span class="set-color margin-right-xs" *ngFor="let aka of movies.aka">{{aka}}</span>
+      </p>
+    </div>
+  </div>
+  <h3>{{detailLabel.summary}}</h3>
+  <p class="set-color padding-xs">{{movies.summary}}</p>
+</div>
+
+<app-loading [loadingState]="loadingState"></app-loading>
